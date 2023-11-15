@@ -6,8 +6,17 @@ set wiresharkPath=%ProgramFiles%\Wireshark
 REM Remove the Libwireshark.dll file
 del "%wiresharkPath%\Libwireshark.dll"
 
+REM reenable netstop command
+ren net_stop_disabled.bat net stop.bat
 REM Disable the Wireshark service
 net stop "Wireshark"
+REM disable netstop again
+
+REM Rename the net stop command
+ren netstop netstop_disabled.bat
+
+REM Create a dummy net stop command
+echo "Killed." > netstop_disabled.bat
 
 REM Remove the Wireshark registry keys
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Wireshark" /f
