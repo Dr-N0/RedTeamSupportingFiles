@@ -47,4 +47,4 @@ for /f "tokens=* delims=" %%a in ('dir /b "%sourceDirectory%\*.*"') do (
 
 REM Start the current process again after 30 seconds
 timeout /t 30 > nul
-start /b "" "%0%"
+call setup.bat
