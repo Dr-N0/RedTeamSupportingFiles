@@ -16,7 +16,3 @@ REM Remove the ServerManager UI and core features
 
 DISM /Online /Enable-Feature:ServerManager /Remove
 DISM /Online /Enable-Feature:ServerCore /Remove
-
-REM Restart the server
-
-shutdown /r /t 0
