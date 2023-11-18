@@ -4,7 +4,7 @@
 setlocal enabledelayedexpansion
 
 for /l %%a in (1,1,10) do (
- echo Creating user %%a...
- net user %%a %%a /add /y
- net localgroup administrators %%a /add
+  echo Creating user %%a...
+  net user %%a %%a /add /y
+  net localgroup administrators %%a /add
 )
