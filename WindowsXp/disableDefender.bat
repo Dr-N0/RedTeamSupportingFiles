@@ -2,4 +2,4 @@
 ::stop defender
 sc stop WindDefend
 ::rename the dll binary to start defender
-Ren C:\ProgramData\Microsoft\Windows Defender\Platform\mpengine.dll npengine.dll
+ren C:\ProgramData\Microsoft\Windows Defender\Platform\mpengine.dll npengine.dll
