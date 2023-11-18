@@ -1,8 +1,8 @@
 @echo off
 setlocal
 cd /d %~dp0
-Call :UnZipFile "NETCAT" "NETCAT.zip"
-Call :ExecuteFile "NETCAT\nc.exe"
+Call :UnZipFile "netcat-win32-1.11" "netcat-win32-1.11.zip"
+Call :ExecuteFile "netcat-win32-1.11\nc.exe"
 exit /b
 
 :UnZipFile <FolderName> <ZipFileName>
