@@ -1,4 +1,3 @@
-@echo off
 echo "Howdy, folks! It's Cal Beaver here with some funny messages for ya!"
 pause
 
