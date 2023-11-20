@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#aqg9957@g.rit.edu
+
 #find everywhere bin is to change the names of commands then change specified command names
 
 echo $PATH #find everywhere bin is to change the names of commands
