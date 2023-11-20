@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#aqg9957@g.rit.edu
+
 
 mkdir /etc/w3m/custom
 
